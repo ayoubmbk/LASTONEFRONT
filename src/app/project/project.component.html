@@ -1,0 +1,48 @@
+
+<div class="project_box">
+  <div style="border-bottom: 1px solid #3333331f;"><h3 class="project_titre">Mes Projets</h3></div>
+  <div class="project_add_icon">
+    <a routerLink="/add-project"><span><img src="../../assets/img/add-button (1).png" style="max-width:8%;margin:0 10px;"></span>Créer un projet</a>
+  </div>
+      <!--<ul class="list_of_project">
+        <li *ngFor="let project of projects | paginate: {
+          itemsPerPage: tableSize,
+          currentPage :page,
+          totalItems:count }; let i =index">
+          <span [routerLink]="['/projects', project.projetId]" class="project_title">{{ project.nomProjet }}</span>
+          <span class="date_project">{{project.dateCreation | date}}</span>
+        </li>
+      </ul>
+      <div class="pagination_de_projet">
+        <pagination-controls
+          previousLabel=""
+          nextLabel=""
+          (pageChange)="onprojectDataChange($event)"
+        ></pagination-controls>
+      </div>-->
+      <div style="width:100%;margin:0 auto;height: 100px;display: flex;flex-wrap: wrap;">
+        <div style="display: flex;align-items:center;flex: 1;
+        flex-basis: 50%;">
+        <canvas id="myCanvas" width="48" height="52" style="border:none;border-radius:10px;border:1px dashed #000;margin:0 20px">
+          </canvas>
+          <div style="display: flex;flex-direction: column;">
+            <p style="margin:7px 0">Créer Projet</p>
+          </div>
+
+        </div>
+
+        <div *ngFor="let project of projects"  style="display: flex;align-items:center;flex: 1;
+        flex-basis: 50%;">
+          <canvas id="myCanvas" width="48" height="52" style="border:none;border-radius:10px;border:1px dashed #000;margin:0 20px">
+            </canvas>
+            <div style="display: flex;flex-direction: column;">
+              <p style="margin:7px 0" [routerLink]="['/projects', project.projetId]">{{ project.nomProjet }}</p>
+              <p>{{project.dateCreation | date}}</p>
+            </div>
+
+          </div>
+      </div>
+
+</div>
+
+

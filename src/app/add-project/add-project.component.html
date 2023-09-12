@@ -1,0 +1,40 @@
+<app-navbar></app-navbar>
+<div style="display: flex;justify-content: center;height:75vh;margin:50px 0;">
+    <div style="width:70%;box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;display: flex;">
+    <div class="form-group" style="width: 60%;padding: 25px;display: flex;flex-direction: column;align-items: center;">
+      <div style="display: flex;flex-direction: column;align-items: center;">
+        <span style="font-size: 25px;margin: 20px 0;">🖐</span>
+        <h3 style="font-weight: 500;font-size: 26px;margin-bottom: 10px;">Welcome Back</h3>
+        <p style="font-size: 17px;margin-bottom: 25px 0;color:#3333339f">Add Your Project Easily</p>
+      </div>
+      <form style="width:60%" [formGroup]="projectForm" (ngSubmit)="createProject()">
+        <div class="form-group" style="margin:15px 0">
+          <label for="numProjet" style="margin-bottom: 8px;">Project Number:</label>
+          <input type="number" id="numProjet" formControlName="numProjet" class="form-control" />
+        </div>
+        <div class="form-group" style="margin:15px 0">
+          <label for="nomProjet" style="margin-bottom: 8px;">Project Name:</label>
+          <input type="text" id="nomProjet" formControlName="nomProjet" class="form-control" />
+          <span class="text-danger"
+              *ngIf="(f.nomProjet.touched || f.submitted) && f.nomProjet.errors?.required">
+               Name is required
+          </span>
+
+        </div>
+        <div class="form-group" style="margin:15px 0">
+          <label for="descriptionProjet" style="margin-bottom: 8px;">Project Description:</label>
+          <textarea id="descriptionProjet" formControlName="descriptionProjet" class="form-control"></textarea>
+          <span class="text-danger"
+          *ngIf="(f.descriptionProjet.touched || f.submitted) && f.descriptionProjet.errors?.required">
+           Description is required
+          </span>
+
+        </div>
+        <div class="form-group">
+          <button type="submit" [disabled]="!projectForm.valid" class="btn btn-primary">Add Project</button>
+        </div>
+      </form>
+    </div>
+    <div class="adding_project_form_img" style="width:40%;background-color: rgb(194, 170, 138);"></div>
+  </div>
+</div>

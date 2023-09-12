@@ -1,0 +1,8 @@
+.dash-calendar {
+    min-height: 60vh;
+    max-height: 70vh;
+    overflow: auto;
+}
+.container-fluid {
+    padding-left: 16.5625rem; /* Equal to the width of the sidenav */
+  }

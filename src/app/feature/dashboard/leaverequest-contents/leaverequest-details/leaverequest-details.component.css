@@ -1,0 +1,239 @@
+.leave-emp-profile-img {
+    width: 60%;
+    border-radius: 5%;
+}
+  body {
+    background-color: #f0f0f0;
+  }
+  .card {
+    border-radius: 15px;
+    border: none;
+  }
+  .card .row.card-body {
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+  }
+  .card .row.card-body .profile-img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    background: #e8f4f0;
+    border-radius: 15px;
+  }
+  .card .row.card-body .profile-img img {
+    max-width: 100%;
+    border-radius: 50%;
+    border: 5px solid #17a2b8;
+  }
+  .card .row.card-body .profile-head {
+    padding: 20px;
+  }
+  .card .row.card-body .profile-head h5,
+  .card .row.card-body .profile-head h6 {
+    margin: 0 0 10px;
+  }
+  .card .row.card-body .profile-head p {
+    margin: 0;
+  }
+  .card .row.card-body nav.custom-tab {
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
+  .card .row.card-body nav.custom-tab a.nav-link {
+    color: #d80f0f;
+  }
+  .btn-custom {
+  background-color: #967bb6;
+  border-color: #967bb6;
+}
+
+  .card .row.card-body .bg-light {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+  }
+  .btn-purple {
+    background-color: #967bb6;
+    color: white;
+  }
+  .card .row.card-body .bg-light p {
+    margin: 0 0 10px;
+  }
+  .card .row.card-body .bg-light .border-right {
+    border-right: 1px solid #dee2e6;
+  }
+  .text-warning {
+    color: #ffc107 !important;
+    font-weight: bold;
+  }
+  .text-center.mt-5 {
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .btn {
+    border-radius: 20px;
+    font-size: 14px;
+  }
+  .form-group label {
+    font-weight: bold;
+  }
+  .form-control, .custom-ngSelect {
+    border-radius: 20px;
+  }
+  .btn-block {
+    border-radius: 20px;
+  }
+  .custom-tab {
+    background: linear-gradient(145deg, #1e3c72, #2a5298);
+    border-radius: 30px;
+    padding: 10px 20px;
+  }
+  
+  .custom-tab-link {
+    padding: 10px 20px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #f0f0f0, #e6e6e6);
+    box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    color: #2a5298;
+    transition: background 0.3s, color 0.3s;
+  }
+  
+  .custom-tab-link.active, .custom-tab-link:hover {
+    background: linear-gradient(145deg, #2a5298, #1e3c72);
+    color: #f0f0f0;
+  }
+  .info-text p {
+    font-family: 'Helvetica, sans-serif';
+    font-size: 16px;
+    color: #333;
+  }
+
+  .info-text .text-secondary {
+    font-weight: bold;
+    color: #2a5298;
+  }
+
+  .profile-head h5 {
+    font-size: 24px;
+    color: #2a5298;
+  }
+
+  .profile-head h6 {
+    font-size: 20px;
+    color: #555;
+  }
+
+  .profile-head .text-muted {
+    font-size: 14px;
+    color: #777;
+  }
+
+  .btn-primary {
+    background-color: #2a5298;
+    border-color: #2a5298;
+  }
+  .employee-link {
+    display: inline-block;
+    font-family: 'Monospace'; 
+    font-size: 24px;
+    color: #1c2331;
+    border-bottom: 2px solid transparent;
+    transition: color 0.3s, border-bottom 0.3s;
+  }
+
+  .employee-link:hover {
+    color: #28a745;
+    border-bottom: 2px solid #28a745;
+  }
+  .custom-tab {
+  background: #967bb6;
+  border-radius: 30px;
+  padding: 10px 20px;
+}
+
+.custom-tab-link.active, .custom-tab-link:hover {
+  background: #967bb6;
+  color: #f0f0f0;
+}
+.text-submitted {
+  font-family: 'Helvetica, Arial, sans-serif';
+  color: #5a6268;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  animation: fadeIn 2s ease-in-out infinite;
+}
+
+.text-submitted .fas {
+  color: #28a745;
+  margin-right: 10px;
+}
+
+.text-submitted .date-text {
+  color: #17a2b8;
+  font-weight: bold;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+.submitted-on {
+  font-family: 'Georgia, serif';
+  color: #2a5298;
+  margin-top: 30px; /* Adding top margin to take it a bit lower */
+  margin-bottom: 30px; /* Existing bottom margin */
+  font-size: 16px; /* making the font size slightly larger for better visibility */
+  transition: color 0.3s; 
+}
+
+.submitted-on:hover {
+  color: #967bb6; /* changing color on hover for a dynamic effect */
+}
+
+.submitted-on i {
+  margin-right: 8px; /* adding some space between the icon and the text */
+  color: #967bb6; /* giving the icon a different color for a better visual appeal */
+}
+.reviewed-by-text {
+  font-family: 'Arial, sans-serif';
+  font-size: 18px;
+  color: #0b0b0c; /* Change this to any color that is compatible with your theme */
+}
+
+.reviewed-by-link {
+  text-decoration: none;
+  font-weight: bold;
+  color: #967bb6; /* Change this to any color that matches well with the other colors on your page */
+}
+
+.reviewed-by-link:hover {
+  color: #715c91; /* Adding a hover effect to the link */
+}
+
+.request-status-text {
+  font-family: 'Arial, sans-serif';
+  font-size: 16px;
+  color: #000000; /* Change this to a suitable color */
+}
+
+.denied-reason-text {
+  font-family: 'Arial, sans-serif';
+  font-size: 16px;
+  color: #d9534f; /* Keeping the red color for indicating denial */
+}
+
+
+

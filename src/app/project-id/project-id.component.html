@@ -1,0 +1,113 @@
+<div class="principal_box">
+  <app-sidenav></app-sidenav>
+  <div class="second_principal_element">
+    <h2>Project Details</h2>
+    <div *ngIf="project">
+      <h3>{{ project?.nomProjet }}</h3>
+      <p>{{ project?.descriptionProjet }}</p>
+    </div>
+    <div class="project_stats">
+      <!--Les taches box-->
+      <div class="Les_phases">
+        <div class="left_side_stats_box">
+          <div class="d-flex">
+            <span><img style="width:30px;" src="../../assets/img/task-list.png"></span>
+            <h3 class="mx-2" style="flex-grow: 6;font-weight: 500;">Taches</h3>
+          </div>
+          <a [routerLink]="['/projects', project?.projetId, 'tasks']" class="link_details_stats_box">Details</a>
+        </div>
+        <div  class="espace_phases_box">
+          <div class="Les_phases_box"><h3>{{ taskCount }}</h3><p>Totale</p></div>
+          <div class="Les_phases_box" style="background-color:#bebebe88;"><h3>{{taskCountEncours}}</h3><p>En cours</p></div>
+        </div>
+
+      </div>
+
+      <!--les phases-->
+      <div class="Les_phases">
+        <div class="left_side_stats_box">
+          <div class="d-flex">
+            <span><img style="width:30px;" src="../../assets/img/projet.png"></span>
+            <h3 class="mx-2" style="flex-grow: 6;font-weight: 500;">Phases</h3>
+          </div>
+          <a [routerLink]="['/phases', project?.projetId]" class="link_details_stats_box">Details</a>
+        </div>
+        <div  class="espace_phases_box" >
+          <div class="Les_phases_box" style="background-color:#E0F58E"><h3>{{phaseTotal}}</h3><p>En totale</p></div>
+          <div class="Les_phases_box" style="background-color:#bebebe88;"><h3>3</h3><p>Ajouter</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="ppl_box">
+
+      <!-- Other content here -->
+      <!--
+      <div class="container p-5">
+        <input class="form-control form-control-sm" type="text" placeholder="Search" [(ngModel)]="searchText">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Email</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Username</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let user of users | search: searchText">
+              <td>{{ user.email }}</td>
+              <td>{{ user.first_name }}</td>
+              <td>{{ user.last_name }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.phone }}</td>
+            </tr>
+            <tr *ngIf="users.length === 0">
+              <td colspan="5">No users found.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+-->
+     <div class="list_of_pep">
+       <h3>List of users</h3>
+       <div class="each_users_line" *ngFor="let user of filteredUsers | search: searchText">
+          <div class="users_left_part" style="display: flex;align-items: center;">
+              <div class="User_profile_img"><img src="../../assets/img/philip-martin-5aGUyCW_PJw-unsplash.jpg"></div>
+              <div style="display: flex;flex-direction: column;">
+                <h3 style="margin:0;">{{ user.username }}</h3>
+                <h5 style="margin:0;">{{ user.email }}</h5>
+              </div>
+          </div>
+          <div>
+            <button class="assign_user_project" (click)="assignUserToProject(user.id)">Assign to project</button>
+          </div>
+
+
+       </div>
+
+     </div>
+
+
+
+
+      <!--team box-->
+      <div class="container p-5">
+        <input class="form-control form-control-sm" type="text" placeholder="Search" [(ngModel)]="searchText">
+        <table class="table table-hover table-striped">
+          <thead>
+            <tr>
+              <th>Nom Equipes</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let equipes of equipes">
+              <td>{{ equipes.nomEquipe }}</td>
+
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+

@@ -1,0 +1,30 @@
+<div class="task_box">
+  <div style="border-bottom: 1px solid #3333331f;margin-bottom: 20px;">
+    <h3 class="task_titre">Mes Taches</h3>
+    <mat-button-toggle-group [(ngModel)]="selectedStatus" class="toggle-buttons">
+      <mat-button-toggle value="EnCours" (click)="changeStatus('EnCours')">En cours</mat-button-toggle>
+      <mat-button-toggle value="Terminé" (click)="changeStatus('Terminé')">Terminé</mat-button-toggle>
+      <mat-button-toggle value="EnRetard" (click)="changeStatus('EnRetard')">En retard</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
+  <div class="Add_your_task">
+    <span>
+      <mat-icon style="color:#75758b">check_circle_outline</mat-icon>
+    </span>
+    <form [formGroup]="taskForm">
+      <input type="text" formControlName="nomTache" placeholder="Click Here To Add Task" (keyup.enter)="addTask()" (keyup)="handleKeyPress($event)">
+    </form>
+  </div>
+  <ul class="list_of_task">
+    <li *ngFor="let tache of Taches">
+      <div>
+        
+        <span>
+          <mat-icon class="check_task" (click)="updateTaskStatus(tache.idTache)" (mouseenter)="hoverCheckIcon = true" (mouseleave)="hoverCheckIcon = false">check_circle_outline</mat-icon>
+        </span>
+        <span [routerLink]="''" class="task_title" (click)="openTaskDialog(tache.idTache)">{{ tache.nomTache }}</span>
+      </div>
+    </li>
+  </ul>
+</div>

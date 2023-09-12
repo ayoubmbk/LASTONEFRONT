@@ -1,0 +1,78 @@
+.project_box
+{
+
+  width: 550px;
+  height: 400px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 15px 25px;
+  margin:0 15px;
+
+  .project_titre{
+     font-size: 20px;
+     font-weight: 400;
+     font-family: 'Lexend', sans-serif !important;
+  }
+  .project_add_icon
+  {
+    margin-top: 20px;
+    margin-bottom: 7%;
+    padding: 0 15px;
+    color:#3f3f3f
+  }
+  .project_add_icon:hover
+  {
+    cursor: pointer;
+  }
+  .project_add_icon a
+  {
+    text-decoration: none;
+    color: #454545;
+  }
+  .list_of_project li
+  {
+    list-style-type: none;
+    padding: 15px 10px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #3333331a;
+  }
+  .list_of_project li .date_project
+  {
+    font-size: 13px;
+    font-weight: 300;
+  }
+  .list_of_project li .project_title
+  {
+    font-size: 16px;
+    color: #333333dd;
+    font-family: 'Lexend', sans-serif;
+    font-weight: 400;
+
+  }
+
+}
+.pagination_de_projet
+{
+  display: flex;
+  justify-content: center;
+}
+.ngx-pagination {
+  padding-left: 0px !important;
+}
+
+:host /deep/.ngx-pagination .current,
+.btn-info {
+  background-color: #c3b9f0 !important;
+  border: transparent !important;
+  border-radius: 20px !important;
+}
+
+:host /deep/.ngx-pagination .current:hover {
+  background: #c3b9f0 !important;
+  border-radius: 20px;
+  cursor: pointer;
+  border: transparent;
+}

@@ -1,0 +1,54 @@
+.principal_box
+{
+  display: flex;
+}
+app-sidenav
+{
+  flex: 0 0 18%;
+  height: 100vh ;
+  .sidenav_principal
+  {
+    height: 100vh;
+
+  }
+}
+
+
+.task-list
+{
+  flex: 0 0 82%;
+  background-color: #EFF1F1;
+  padding: 0 25px;
+  display: flex;
+  flex-direction: column;
+}
+.task-list h2
+{
+  max-width: 80%;
+  margin: 25px auto;
+}
+.task-list table
+{
+  width: 80%;
+  margin: 0 auto;
+}
+.task-list table th
+{
+  background-color: #45ccbec7;
+  color: white ;
+  font-size: 15px;
+}
+.search__container
+{
+  margin-bottom: 20px;
+}
+.search__container input
+{
+    margin: 0 0px 0 103px;
+    width: 269px;
+    height: 42px;
+    background-color: #ffffff;
+    border: 1px solid #c3c3c3;
+    padding: 20px;
+    border-radius: 85px;
+}

@@ -1,0 +1,163 @@
+.principal_box
+{
+  display: flex;
+}
+app-sidenav
+{
+  flex: 0 0 18%;
+  height: 100vh ;
+  .sidenav_principal
+  {
+    height: 100vh;
+
+  }
+}
+.second_principal_element
+{
+  flex: 0 0 82%;
+  background-color: #EFF1F1;
+  padding: 0 25px;
+}
+.project_stats
+{
+  .Les_phases
+  {
+    background-color: #fff;
+    width: 33%;
+    padding: 21px 25px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 15px;
+  }
+  .Les_phases_box
+  {
+    background-color: #c3b9f0;
+    padding: 13px 25px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+  }
+  .Les_phases_box h3
+  {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+  .Les_phases_box p
+  {
+    font-size: 13px;
+  }
+  .espace_phases_box
+  {
+    flex-grow: 3;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+.project_stats
+{
+  display: flex;
+}
+.left_side_stats_box
+{
+  display: flex;
+  flex-grow: 7;
+  flex-direction: column;
+}
+.link_details_stats_box
+{
+          border: 2px solid #65656545;
+          padding: 8px 12px;
+          max-width: 60%;
+          border-radius: 10px;
+          text-align: center;
+          color: #45ccbe;
+          text-decoration: none;
+          margin-top:3px;
+}
+.search_user_box {
+  margin-bottom: 10px;
+}
+
+.search_user_box input {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+}
+
+.add_user_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  background-color: #bebebe88;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.add_user_button:hover {
+  background-color: #bebebe;
+}
+
+.user_list_box {
+  /* Your styles for the user list box */
+}
+
+.user_item_box {
+  /* Your styles for the user item box */
+}
+
+.user_box{
+margin-top: 50px;
+}
+.ppl_box
+{
+  display: flex;
+  margin-top: 50px;
+
+}
+.list_of_pep
+{
+  background-color: #fff;
+  height: 300px;
+  width: 80%;
+  border-radius: 15px;
+  padding: 20px 25px;
+}
+.User_profile_img
+{
+  width: 2.8rem;
+  height: 2.8rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: antiquewhite;
+  margin-right: 10px;
+}
+.User_profile_img img
+{
+  width: 100%;
+  height: 100%;
+  display: block;
+  image-rendering: crisp-edges;
+}
+.each_users_line
+{
+  display: flex;
+  justify-content: space-between;
+}
+.assign_user_project
+{
+  border:none;
+  background-color: transparent;
+  padding: 15px 20px;
+  border: 1px solid #45ccbe;
+  border-radius: 10px;
+}
+

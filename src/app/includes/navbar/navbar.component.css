@@ -1,0 +1,41 @@
+.navbar
+{
+  background-color: transparent;
+  color: white;
+  padding:18px 50px;
+  height: 70px;
+  max-height: 70px;
+  max-width: 100%;
+}
+.navbar-brand
+{
+  color: rgb(40, 40, 40);
+}
+.nav-link
+{
+  color: rgb(40, 40, 40);
+}
+.active
+{
+  color: white;
+}
+.profile_part
+{
+  display: flex;
+  align-items: center;
+}
+.nav-link.active
+{
+  color: white;
+}
+.notif_parent
+{
+  background-color: white;
+  border-radius: 8px;
+  .notifications_navbar
+{
+  color: #363636;
+}
+
+}
+

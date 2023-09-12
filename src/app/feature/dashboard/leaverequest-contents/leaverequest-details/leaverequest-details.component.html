@@ -1,0 +1,104 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+<div class="row">
+  <div class="col-md-3">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="col-md-9 mt-4">
+<div class="col-md-12 mt-4">
+
+  <!-- Show Leave Request Details -->
+  <div *ngIf="isLeaveRequestSelected" class="card shadow-lg p-3 mb-5 bg-white rounded">
+    
+    <div class="row card-body">
+      <div class="col-md-12 mb-3 d-flex justify-content-end">
+        <button class="btn btn-purple" (click)="toggleEdit()">
+          {{isRequestEdit ? "View Request" : "Approve Request"}}
+        </button>
+      </div>
+      
+      <div class="col-md-4 text-center">
+        <div class="profile-img mb-4">
+          <img src="/assets/img/employee.png" class="rounded-circle img-fluid leave-emp-profile-img border border-success" style="width: 150px; height: 150px;" alt="profile image" />
+        </div>
+      </div>
+      
+      <div class="col-md-8">
+        <div class="profile-head mb-3">
+          <h5 class="font-weight-bold text-success">
+            <a routerLink="/employees/details/{{selectedLeaveRequest.employeeId}}" class="employee-link" style="text-transform: uppercase;">
+            {{selectedLeaveRequest.employeeId}}
+            </a>
+          </h5>
+          <h6 class="text-muted">{{selectedLeaveRequest.leaveTypeDTO.type_name}}</h6>
+          <p class="text-muted submitted-on">
+            <i class="fas fa-calendar-alt"></i> Submitted On: 
+            <span>{{selectedLeaveRequest.createdAt | date :'medium'}}</span>
+          </p>
+                </div>
+
+        <nav mat-tab-nav-bar class="custom-tab mb-3 rounded">
+          <a mat-tab-link class="nav-link active custom-tab-link"></a>
+        </nav>
+
+        <div class="row font-italic mt-3 bg-light p-3 rounded">
+          <div class="col-md-6 border-right info-text">
+            <p>Leave Request Id: <span class="text-secondary">{{selectedLeaveRequest.leaveId}}</span></p>
+            <p>Employee Name: <span class="text-secondary">{{selectedLeaveRequest.employeeId}}</span></p>
+            <p>Reason: <span class="text-secondary">{{selectedLeaveRequest.leaveReason}}</span></p>
+            <p>Leave Type: <span class="text-secondary">{{selectedLeaveRequest.leaveTypeDTO.type_name}}</span></p>
+            <p>From: <span class="text-secondary">{{selectedLeaveRequest.fromDate}}</span></p>
+            <p>To: <span class="text-secondary">{{selectedLeaveRequest.toDate}}</span></p>
+            <p>Status: <span class="text-secondary">{{selectedLeaveRequest.status}}</span></p>
+          </div>
+
+          <div *ngIf="selectedLeaveRequest.reviewedBy && !isRequestEdit" class="col-md-6">
+            <p class="reviewed-by-text">Reviewed By: 
+               <a routerLink="/employees/details/{{selectedLeaveRequest.reviewedBy}}" class="reviewed-by-link">
+                 {{selectedLeaveRequest.reviewedBy}}
+               </a>
+            </p>
+            <p class="request-status-text">Request: <span class="text-secondary">{{selectedLeaveRequest.status}}</span></p>
+            <p *ngIf="selectedLeaveRequest.status === 'DENIED'" class="denied-reason-text">Denied Reason: {{selectedLeaveRequest.deniedReason}}</p>
+         </div>
+
+          <div *ngIf="isRequestEdit" class="col-md-6">
+            <form [formGroup]="requestApproveForm" (ngSubmit)="onSubmit()" class="bg-white p-3 rounded shadow-sm">
+              <div *ngIf="!!approve_leave_update_msg" [ngClass]="has_error ? 'alert alert-danger': 'alert alert-info'">{{approve_leave_update_msg}}</div>
+
+              <h5 class="text-center text-info mb-4"> Approve Request </h5>
+
+              <div class="form-group row">
+                <label for="status" class="col-sm-3 col-form-label">Status <span class="text-danger">*</span></label>
+                <div class="col-sm-9">
+                  <mat-radio-group id="status" formControlName="status" class="d-flex align-items-center custom-ngSelect" [ngClass]="{ 'is-invalid': submitted && f.status.errors }">
+                    <mat-radio-button value="APPROVED" class="text-success">APPROVED</mat-radio-button>
+                    <mat-radio-button class="pl-2 text-danger" value="DENIED">DENIED</mat-radio-button>
+                  </mat-radio-group>
+                  <div *ngIf="submitted && f.status.errors" class="invalid-feedback d-block">
+                    <div *ngIf="f.status.errors.required">Status is required</div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group row">
+                <label for="deniedReason" class="col-sm-3 col-form-label">Reason</label>
+                <div class="col-sm-9">
+                  <input type="text" id="deniedReason" formControlName="deniedReason" class="form-control" placeholder="Reason" />
+                </div>
+              </div>
+
+              <button mat-raised-button color="primary" class="mt-3 btn-block btn-primary" type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Show Empty Details -->
+  <div *ngIf="!isLeaveRequestSelected" class="text-center mt-5">
+    <h4 class="text-warning">{{selected_leave_msg}}</h4>
+  </div>
+</div>
+

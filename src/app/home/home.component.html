@@ -1,0 +1,53 @@
+<!--<div class="home_content">
+  <h5>Bonjour {{firstName}}</h5>
+  <div class="section_content">
+    <div class="project_content">
+
+    </div>
+  </div>
+
+</div>
+-->
+<router-outlet></router-outlet>
+
+<div class="content_comp" style="display:flex;background-color: #eff1f1;">
+
+  <app-sidenav></app-sidenav>
+    <div class="stats_content" style="">
+      <div><app-navbar></app-navbar></div>
+      <div class="barre_info_personnel">
+        <p class="currentdate">{{ currentDate }}</p>
+        <h3 class="personnel_name">Bonjour, {{firstName}}</h3>
+        <div class="barre_de_tache_personnel" style="display: flex;justify-content: space-between;">
+          <div>
+            <select [(ngModel)]="selectedOption" style="border:none">
+              <option value="week">Mon semaine</option>
+              <option value="month">Mon mois</option>
+              <option value="day">Ma journee</option>
+            </select>
+          </div>
+          <div class="barre_de_tache_container">
+            <span></span>
+            <span class="barre_de_tache_container_number">{{completedTasksCount}}</span>
+            <p class="barre_de_tache_container_text">Tache Terminé</p>
+          </div>
+          <div class="barre_de_tache_container">
+            <span></span>
+            <span class="barre_de_tache_container_number">0</span>
+            <p class="barre_de_tache_container_text">Projet créer</p>
+  
+          </div>
+          <div *ngIf="notification">{{ notification }}</div>
+
+
+        </div>
+      </div>
+      <div class="stats_content_box" style="display: flex;justify-content: center;">
+        <app-project></app-project>
+        <app-task></app-task>
+      </div>
+
+    </div>
+
+
+</div>

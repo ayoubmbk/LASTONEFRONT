@@ -1,0 +1,73 @@
+<div class="principal_box">
+  <app-sidenav></app-sidenav>
+<div class="task-list">
+    <h2>Task List</h2>
+    <div class="search__container">
+      <div class="container">
+        <input class="search__input" type="text" placeholder="Search">
+      </div>
+      <button>Add task</button>
+    </div>
+    <!--<table class="table">
+      <thead>
+        <tr>
+          <th>Task Name</th>
+          <th>Status</th>
+          <th>Difficulty</th>
+          <th>Assigned To</th>
+          <th>Phase</th>
+
+
+
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let task of tasks">
+          <td>{{ task.nomTache }}</td>
+          <td [ngClass]="{'text-success': task.status === 'completed', 'text-danger': task.status === 'pending'}">
+            {{ task.status }}
+          </td>
+          <td>{{task.user?.first_name }}</td>
+
+
+        </tr>
+        <button class="btn btn-danger"></button>
+      </tbody>
+    </table>
+  -->
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="nomTache">
+      <th mat-header-cell *matHeaderCellDef> nomTache </th>
+      <td mat-cell *matCellDef="let element"> {{element.nomTache}}</td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef> Status </th>
+      <td mat-cell *matCellDef="let element"><span  *ngIf="element.status=='unassigned'"><img style="width: 8%;" src="../../assets/img/add-user.png"></span> {{element.status}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="Difficulty">
+      <th mat-header-cell *matHeaderCellDef> Assigned To </th>
+      <td mat-cell *matCellDef="let element"> {{element.Difficulty}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="Phase">
+      <th mat-header-cell *matHeaderCellDef> Phase</th>
+      <td mat-cell *matCellDef="let element"> {{element.Phase}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+
+  </div>
+</div>

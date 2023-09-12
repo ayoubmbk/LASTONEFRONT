@@ -1,0 +1,70 @@
+<div class="row">
+  <div class="col-md-3">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="col-md-9 mt-4">
+<div class="col-md-12 mt-4">
+<div class="row content-box bg-light p-4 rounded shadow-sm">
+  <div class="col-md-12">
+
+    <mat-progress-bar *ngIf="loading" mode="indeterminate" class="p-1 mb-3"></mat-progress-bar>
+
+    <table class="table table-hover table-responsive-md">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">S.N</th>
+          <th scope="col" (click)="sort('employee.firstName')" style="cursor: pointer;">
+            Employee 
+            <mat-icon class="align-middle">swap_vert</mat-icon>
+          </th>
+          <th scope="col" (click)="sort('leaveType.typeName')" style="cursor: pointer;">
+            Leave Type 
+            <mat-icon class="align-middle">swap_vert</mat-icon>
+          </th>
+          <th scope="col" (click)="sort('fromDate')" style="cursor: pointer;">
+            From Date 
+            <mat-icon class="align-middle">swap_vert</mat-icon>
+          </th>
+          <th scope="col" (click)="sort('toDate')" style="cursor: pointer;">
+            To Date 
+            <mat-icon class="align-middle">swap_vert</mat-icon>
+          </th>
+          <th scope="col" (click)="sort('status')" style="cursor: pointer;">
+            Status 
+            <mat-icon class="align-middle">swap_vert</mat-icon>
+          </th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody *ngIf="leaveRequests">
+        <tr *ngFor="let leaverequest of leaveRequests | paginate: { itemsPerPage: size, currentPage: currentPage, totalItems: totalElements }; let i = index">
+          <th scope="row">{{i+1}}</th>
+          <td>
+            <a routerLink="/employees/details/{{leaverequest.employeeId}}" class="text-decoration-none" style="color: hsla(276, 100%, 1%, 0.938); font-size: 1.1em; font-family: 'Helvetica, Arial, sans-serif'; text-transform: uppercase;">
+              {{leaverequest.username}}
+            </a>
+          </td>
+          <td>{{leaverequest.leaveTypeDTO.typeName}}</td>
+          <td>{{leaverequest.fromDate | date : 'mediumDate'}}</td>
+          <td>{{leaverequest.toDate | date : 'mediumDate'}}</td>
+          <td [ngClass]="(leaverequest.status=='APPROVED')?'text-success':'text-danger'">{{leaverequest.status}}</td>
+          <td>
+            <a routerLink="/leaverequests/details/{{leaverequest.leaveId}}" class="text-decoration-none">
+              <button class="btn btn-purple">View</button>
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="row col-md-12 mt-4">
+      <div class="col-md-auto">
+        <span *ngIf="leaveRequests" class="table-details">Showing {{(currentPage-1) * size +1}} to {{(currentPage-1) * size + numberOfElements }} of {{totalElements}}</span>
+      </div>
+      <div class="col">
+        <pagination-controls class="float-right" (pageChange)="getPage($event)"></pagination-controls>
+      </div>
+    </div>
+
+  </div>
+</div>

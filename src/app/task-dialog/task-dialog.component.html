@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>Task Details</h2>
+
+<mat-dialog-content>
+  <mat-form-field>
+    <mat-label>Project</mat-label>
+    <mat-select [(ngModel)]="selectedProject" (selectionChange)="onProjectSelected($event)">
+      <mat-option *ngFor="let project of projects" [value]="project">
+        {{ project.nomProjet }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div *ngIf="phases.length > 0">
+    <h3>Phases:</h3>
+    <mat-form-field>
+      <mat-label>Select Phase</mat-label>
+      <mat-select [(ngModel)]="selectedPhase">
+        <mat-option *ngFor="let phase of phases" [value]="phase">
+          {{ phase.nom }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <p>Nom Tache: {{ task.nomTache }}</p>
+  <p>ID: {{ task.idTache }}</p>
+  <p>Date Creation: {{ task.dateCreation }}</p>
+  <!-- Display other task properties as needed -->
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="assignTaskToProjectAndPhase(task.idTache, selectedProject?.projetId, selectedPhase?.id)">Assign Task</button>
+  <button mat-button (click)="dialogRef.close()">Close</button>
+</mat-dialog-actions>

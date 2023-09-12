@@ -1,0 +1,13 @@
+<div class="row">
+    <div class="col-md-3">
+      <app-sidenav></app-sidenav>
+    </div>
+    <div class="col-md-9 mt-4">
+  <div class="col-md-12 mt-4">
+<div class="wrapper">
+
+    <div id="content" [ngClass]="isOpen ? 'active' : ''">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

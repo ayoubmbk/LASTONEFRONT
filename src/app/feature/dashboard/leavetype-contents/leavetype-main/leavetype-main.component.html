@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-3">
+    <app-sidenav></app-sidenav>
+  </div>
+  <div class="col-md-9 mt-4">
+<div class="col-md-12 mt-4">
+<div class="content-box">
+
+  <div mat-tab-nav-bar class="custom-tab">
+    <a mat-tab-link class="nav-link" routerLink="/leavetypes/details" routerLinkActive="active">
+      <mat-icon>event_note</mat-icon>&nbsp;All Leave Types</a>
+    <a *ngIf="_authService.isAdmin()" mat-tab-link class="nav-link" routerLink="/leavetypes/new" routerLinkActive="active">
+      <mat-icon>add_circle</mat-icon>&nbsp;New Leave Type</a>
+  </div>
+
+  <router-outlet></router-outlet>
+</div>
